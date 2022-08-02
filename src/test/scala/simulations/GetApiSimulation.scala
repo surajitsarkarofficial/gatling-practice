@@ -4,7 +4,7 @@ import io.gatling.core.scenario.Simulation;
 import io.gatling.core.Predef._;
 import io.gatling.http.Predef._;
 
-class TestAPISimulation extends Simulation{
+class GetApiSimulation extends Simulation{
   //http config
   val httpConf = http.baseUrl("https://reqres.in/")
     .header("Accept","application/json")
