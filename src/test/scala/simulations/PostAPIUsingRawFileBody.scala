@@ -1,10 +1,9 @@
 package simulations
 
-import io.gatling.core.scenario.Simulation;
 import io.gatling.core.Predef._;
 import io.gatling.http.Predef._;
 
-class PostApiSimulation extends Simulation {
+class PostAPIUsingRawFileBody extends Simulation {
 
   val httpConfig = http.baseUrl("https://reqres.in")
     .header("Accept","application/json")
@@ -13,7 +12,7 @@ class PostApiSimulation extends Simulation {
   val scn = scenario("Post call example")
     .exec(http("Post user Request")
     .post("/api/users")
-      .body(RawFileBody("./src/test/resources/payload/create-user.json")).asJson
+      .body(RawFileBody("payload/create-user.json")).asJson
       .check(status is 201)
 
     )

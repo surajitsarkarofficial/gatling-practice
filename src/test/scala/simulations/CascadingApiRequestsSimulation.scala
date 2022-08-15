@@ -12,7 +12,7 @@ class CascadingApiRequestsSimulation extends Simulation {
   val scn = scenario("Test Cascading requests")
     .exec(http("POST USER")
       .post("/api/users")
-      .body(RawFileBody("./src/test/resources/payload/create-user.json")).asJson
+      .body(RawFileBody("payload/create-user.json")).asJson
       .check(status is 201)
     )
     .pause(2)
@@ -26,7 +26,7 @@ class CascadingApiRequestsSimulation extends Simulation {
     .exec(
       http("PUT REQUEST")
         .put("/api/users/2")
-        .body(RawFileBody("./src/test/resources/payload/update-user.json")).asJson
+        .body(RawFileBody("payload/update-user.json")).asJson
         .check(status.in(200 to 201))
     )
     .pause(2)
@@ -34,7 +34,7 @@ class CascadingApiRequestsSimulation extends Simulation {
     .exec(
       http("PATCH REQUEST")
         .patch("/api/users/2")
-        .body(RawFileBody("./src/test/resources/payload/update-user.json")).asJson
+        .body(RawFileBody("payload/update-user.json")).asJson
         .check(status.in(200 to 201))
     )
     .pause(2)

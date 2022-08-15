@@ -15,7 +15,7 @@ class PatchApiSimulation extends  Simulation {
     .exec(
       http("PATCH REQUEST")
         .patch("/api/users/2")
-        .body(RawFileBody("./src/test/resources/payload/update-user.json")).asJson
+        .body(RawFileBody("payload/update-user.json")).asJson
         .check(status.in(200 to 201))
     )
 

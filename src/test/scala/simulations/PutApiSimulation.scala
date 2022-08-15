@@ -17,7 +17,7 @@ class PutApiSimulation extends Simulation {
     .exec(
       http("PUT REQUEST")
         .put("/api/users/2")
-        .body(RawFileBody("./src/test/resources/payload/update-user.json")).asJson
+        .body(RawFileBody("payload/update-user.json")).asJson
         .check(status.in(200 to 201))
     )
 

@@ -17,7 +17,7 @@ class LoopTestSimulation extends Simulation{
     {
       exec(http("POST Request to Create user")
         .post("/public/v2/users")
-        .body(RawFileBody("./src/test/resources/payload/gorest-create-user.json"))
+        .body(RawFileBody("payload/gorest-create-user.json"))
         .check(status is 201)
         .check(jsonPath("$.id").saveAs("userId"))
       )
@@ -41,7 +41,7 @@ class LoopTestSimulation extends Simulation{
     {
       exec(http("PATCH Request to update the user details")
         .patch("/public/v2/users/${userId}")
-        .body(RawFileBody("./src/test/resources/payload/gorest-patch-user.json"))
+        .body(RawFileBody("payload/gorest-patch-user.json"))
         .check(status in (200 to 204))
         .check(jsonPath("$.name") is "Surajit Sarkar")
         .check(jsonPath("$.status") is "inactive")

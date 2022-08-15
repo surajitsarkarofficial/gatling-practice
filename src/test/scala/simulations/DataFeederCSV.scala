@@ -9,7 +9,7 @@ class DataFeederCSV extends Simulation {
     .header("content-type", "application/json")
     .header("accept", "application/json")
 
-  val csvFeeder = csv("data/reqres-get-user.csv").circular
+  val csvFeeder = csv("data/feeder/reqres-get-user.csv").circular
 
   val scn = scenario("Test Data Feeder")
     .feed(csvFeeder)
